@@ -32,24 +32,52 @@ Preparación práctica intensiva para rol de redes y ciberseguridad:
 
 ## Topología Empresarial de 3 Sucursales (Mejorada para STP)
 
-```text
-            INTERNET (simulado)
-                   |
-              [Router ISP]
-                   |
-              ----------------
-              |              |
-        (WAN) R1 HQ      (WAN) R2 B
-              |              |
-           Switch L3      (ROAS) R2
-              |              |
-           ---|---        Switch L2 (B1)
-          |       |          ||  (L2 EtherChannel)
-       SW L2    SW L2     Switch L2 (B2)
-              |
-        (WAN) R3 C (Sucursal C)
-              |
-           Switch L2
+```mermaid
+graph TD
+    %% Nodos Principales
+    ISP((Router ISP<br>Internet))
+    R1{Router R1<br>HQ}
+    R2{Router R2<br>Sucursal B}
+    R3{Router R3<br>Sucursal C}
+
+    %% Switches HQ
+    SW_L3[Switch L3<br>Core HQ]
+    SW_HQ1[Switch L2<br>HQ 1]
+    SW_HQ2[Switch L2<br>HQ 2]
+
+    %% Switches Sucursal B
+    SW_B1[Switch L2<br>B 1]
+    SW_B2[Switch L2<br>B 2]
+
+    %% Switch Sucursal C
+    SW_C[Switch L2<br>C]
+
+    %% Conexiones WAN
+    ISP ---|WAN/Internet| R1
+    R1 ---|WAN| R2
+    R1 ---|WAN| R3
+
+    %% Conexiones LAN HQ (Triángulo STP)
+    R1 ===|LAN Troncal| SW_L3
+    SW_L3 --- SW_HQ1
+    SW_L3 --- SW_HQ2
+    SW_HQ1 ---|Trunk / STP| SW_HQ2
+
+    %% Conexiones LAN Sucursal B (Cascada / EtherChannel)
+    R2 ===|ROAS Trunk| SW_B1
+    SW_B1 ===|EtherChannel| SW_B2
+
+    %% Conexiones LAN Sucursal C (Simple)
+    R3 ===|ROAS Trunk| SW_C
+
+    %% Estilos (Opcional)
+    classDef router fill:#f9d0c4,stroke:#333,stroke-width:2px;
+    classDef switch fill:#d4e6f1,stroke:#333,stroke-width:2px;
+    classDef l3switch fill:#fcf3cf,stroke:#333,stroke-width:2px;
+
+    class ISP,R1,R2,R3 router;
+    class SW_HQ1,SW_HQ2,SW_B1,SW_B2,SW_C switch;
+    class SW_L3 l3switch;
 ```
 
 ---
