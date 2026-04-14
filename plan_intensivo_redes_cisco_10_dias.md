@@ -2,6 +2,7 @@
 
 ## OBJETIVO Y METODOLOGÍA
 **NOTA EXCLUSIVA DEL PLAN:** *Este plan será guiado, evaluado y acompañado por un Tutor Virtual de Inteligencia Artificial que indicará el paso a paso desde 0. Él mantendrá un registro en el archivo "Avance.md" a medida que se ejecute el comando "consolida avances".*
+**REGLA DE INTERACCIÓN:** *El tutor responderá siempre de manera breve, directa y con los comandos necesarios para ahorrar tokens. Sólo proveerá explicaciones si el usuario lo pide explícitamente.*
 
 Preparación práctica intensiva para rol de redes y ciberseguridad:
 - VLANs, STP, EtherChannel
