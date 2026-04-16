@@ -111,18 +111,40 @@ Preparación práctica intensiva para rol de redes y ciberseguridad:
 - Router-on-stick o SVI
 
 ## DÍA 4: STP + EtherChannel
+- Ajuste de Root Bridge primario y secundario (PVST+)
+- PortFast y BPDUGuard en puertos de acceso
+- Creación de grupos EtherChannel (LACP)
 
 ## DÍA 5: Routing estático
+- Rutas por defecto (0.0.0.0) hacia el ISP en R1
+- Rutas estáticas de ida y vuelta para aislar tráfico o respaldar
+- Rutas flotantes (rutas de respaldo con mayor distancia administrativa)
 
 ## DÍA 6: OSPF
+- Activación de OSPFv2 Single-Area (Area 0)
+- Declaración de redes, Router ID y Adyacencias
+- Interfaces pasivas (`passive-interface`) hacia las VLANs
+- Propagación de salida a internet (`default-information originate`)
 
 ## DÍA 7: NAT/PAT
+- Concepto de IP Pública vs Privada
+- Configuración de PAT (NAT con Overload) usando una lista de acceso (ACL)
+- Marcaje `ip nat inside` e `ip nat outside`
 
-## DÍA 8: ACLs
+## DÍA 8: ACLs (Listas de Control de Acceso)
+- ACLs Estándar y Extendidas
+- Reglas granulares de bloqueo (aislar VLANs, bloquear Ping o Telnet)
+- Aplicación de ACLs en los puertos L3 (`in` y `out`)
 
-## DÍA 9: Seguridad IOS
+## DÍA 9: Seguridad Capa 2 (Switching)
+- Port Security (Limitación y Sticky MACs)
+- Modos de violación (`shutdown`, `restrict`, `protect`)
+- Prevención básica contra ataques ARP spoofing
 
-## DÍA 10: Troubleshooting
+## DÍA 10: Troubleshooting Integral (NOC L1/L2/L3)
+- Identificación de fallas comunes de VLANs y Trunks
+- Caída de vecinos OSPF y ruteo asimétrico
+- Comandos estrella para debugeo rápido en entrevistas técnicas
 
 ---
 
